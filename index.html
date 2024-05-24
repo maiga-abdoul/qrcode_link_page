@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image and Message Display</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="w3.css">
+  </head>
+  <body>
+  
+    <div class="w3-display-container w3-third">
+
+    <div class="w3-display-center"  style="width:100%;">
+        <!-- <h2>Photo Card</h2> -->
+      
+        <div class="w3-card-4">
+            <div id="image-container">
+                <!-- <img src="autiCare.png" alt="Alps" style="width:100%; height: 350px;"> -->
+            </div>
+          
+          <div class="w3-panel w3-red w3-card-4">
+            <p id="message-container">
+    
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+       // Get the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const imageUrl = urlParams.get('image');
+        const message = urlParams.get('message');
+
+        // Update the image and message containers
+        const imageContainer = document.getElementById('image-container');
+        const messageContainer = document.getElementById('message-container');
+
+        if (imageUrl) {
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.style = "width:100%; height: 350px;";
+        imageContainer.appendChild(img);
+        } else {
+        imageContainer.textContent = 'No image provided.';
+        }
+
+        if (message) {
+        messageContainer.textContent = message;
+        } else {
+        messageContainer.textContent = 'No message provided.';
+        }
+    </script>
+  </body>
+</html>
